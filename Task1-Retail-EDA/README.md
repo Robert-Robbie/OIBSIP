@@ -45,6 +45,19 @@ Task1-Retail-EDA/
 - **Data-quality issue:** 996 of 5,000 transactions (19.9%, across 75 customers) are dated *before* the customer's `JoinDate`. The sales are valid, so rows were kept and flagged (`BeforeJoinDate`); `JoinDate` was not used in the analysis.
 - Partial periods are handled explicitly: the data starts and ends mid-month, so 2023 and 2025 are partial years and trends use complete months or like-for-like periods.
 
+## Feature checklist coverage
+| # | Requirement | Where in `02_business_questions.ipynb` |
+|---|---|---|
+| 1 | Initial inspection: shape, dtypes, nulls | *Initial inspection* section (and Part 1 notebook) |
+| 2 | Descriptive statistics: mean, median, mode, std | *Descriptive statistics* table |
+| 3 | Monthly and quarterly sales trends (line charts) | Q2 (monthly line chart; quarterly bars with partial quarters flagged) |
+| 4 | Customer age groups and gender breakdown | Q4 |
+| 5 | Top 10 best-selling products; revenue by category | Q1 (top 10 by units, top 10 by profit, category bars) |
+| 6 | Correlation heatmap | *Correlation between numeric variables* |
+| 7 | Extra visualisation with a non-obvious insight | *Price tiers*: the priciest quarter of products earns 42% of revenue at the thinnest margin (23%) |
+| 8 | Written observations after each chart | Markdown cell after every chart |
+| 9 | Conclusion with 3+ actionable recommendations | *Conclusion* table (8 recommendations) |
+
 ## Key findings
 
 | Question | Finding |
@@ -54,6 +67,7 @@ Task1-Retail-EDA/
 | **Q3 Stores & regions** | East leads (5.60M) **only because it has two stores**. Per store, all five are within 6% of each other (2.75M–2.92M); best store is New Michele (West). |
 | **Q4 Demographics** | Men bring in more total revenue only because there are more of them (113 vs 87). **Spend per customer is the same** across gender (p = 0.93) and age bands (p = 0.55). City is unique to each customer, so it can't be analysed. |
 | **Q5 AOV & CLV** | **AOV 2,860** (median 2,156). Historical CLV: **~71.5k revenue and ~19.1k profit per customer** over 24 months (≈9.6k profit/year). ~25 orders per customer; top 20% of customers = 26.5% of revenue (not concentrated). |
+| **Extra insight** | **Units sold are the same in every price tier** (24–26%), so the priciest quarter of products brings 42% of revenue (cheapest quarter: 6%), but at the thinnest margin (23% vs 32%). |
 | **Q6 Discounts** | **Discounts do not raise sales volume** (≈3.0 units per order at every level, p = 0.97) but cost **1.17M (7.6% of list sales)**. Margin falls from 32% (no discount) to 21% (15%). |
 
 ### Recommendations
@@ -62,6 +76,7 @@ Task1-Retail-EDA/
 3. **Cut or test removing discounts** (e.g. in one store first): the data shows no volume benefit, and profit could rise by up to ~30% if volume holds.
 4. Don't over-invest in age/gender targeting; capture a broader **location** field (region/country) to enable geographic analysis.
 5. Share best practice from the top-performing store; no store needs rescuing.
+6. Test **small price rises or cost cuts on high-priced, low-margin lines** (laptops, accessories, headphones): volume does not fall as prices rise.
 
 ### Selected charts
 | | |
