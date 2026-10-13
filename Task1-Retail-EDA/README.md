@@ -27,9 +27,11 @@ Task1-Retail-EDA/
 ├── notebooks/
 │   ├── 01_cleaning_and_features.ipynb   load, validate, merge, engineer features
 │   └── 02_business_questions.ipynb      answers Q1–Q6 with charts and insights
+├── scripts/
+│   └── make_slide_figures.py            larger-text versions of five charts for the presentation
 ├── outputs/
 │   ├── retail_clean.csv                 cleaned, merged dataset (5,000 rows)
-│   └── figures/                         all charts as PNG
+│   └── figures/                         all charts as PNG (slides/ = presentation versions)
 ├── requirements.txt
 └── README.md
 ```
